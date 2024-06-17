@@ -31,25 +31,28 @@ const MovieCard = ({ movie, callback }) => {
   const isFavorite = favorites.some((fav) => fav.id === movie.id);
   const isInWatchlist = watchlist.some((watch) => watch.id === movie.id);
 
-  const handleFavoriteClick = () => {
+  const handleFavoriteClick = async () => {
     if (user) {
       if (isFavorite) {
-        removeFromFavorites(movie);
-        callback(movie);
+        await removeFromFavorites(movie);
+        await callback();
       } else {
         addToFavorites(movie);
+        await callback()
       }
     } else {
       // Navigate to login or show a message
     }
   };
 
-  const handleWatchlistClick = () => {
+  const handleWatchlistClick = async () => {
     if (user) {
       if (isInWatchlist) {
-        removeFromWatchlist(movie);
+        await removeFromWatchlist(movie);
+        await callback();
       } else {
-        addToWatchlist(movie);
+        await addToWatchlist(movie);
+        await callback()
       }
     } else {
       // Navigate to login or show a message

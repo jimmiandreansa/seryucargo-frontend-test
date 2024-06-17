@@ -40,8 +40,8 @@ const Navbar = () => {
       position="sticky"
       sx={{
         backgroundColor: scrolled
-          ? "rgba(25, 118, 210, 0.7)" // Biru dengan transparansi saat di-scroll
-          : "rgba(25, 118, 210, 1)", // Warna biru solid
+          ? "rgba(25, 118, 210, 0.7)"
+          : "rgba(25, 118, 210, 1)",
         transition: "background-color 0.3s ease",
       }}
     >

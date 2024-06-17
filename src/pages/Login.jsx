@@ -11,6 +11,8 @@ const Login = () => {
         );
         const data = await response.json();
 
+        console.log("INI DATA", data)
+
         if (data.success) {
           window.location.href = `https://www.themoviedb.org/authenticate/${data.request_token}?redirect_to=http://localhost:5173/callback`;
         } else {

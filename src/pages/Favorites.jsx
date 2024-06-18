@@ -15,8 +15,6 @@ const Favorites = () => {
   const API_KEY = "ca3fedf8135600641335f54c5eb6e536"; 
 
   const navigate = useNavigate();
-  // const [favorites, setFavorites] = useState([]);
-  // const [loading, setLoading] = useState(true);
   const { favorite, loading } = useFavorite();
   const favoriteDispatch = useFavoriteDispatch();
   const sessionId = localStorage.getItem("tmdb_session_id");

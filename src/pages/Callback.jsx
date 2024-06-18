@@ -24,14 +24,12 @@ const Callback = () => {
           if (response.data.success) {
             const sessionId = response.data.session_id;
 
-            // 2. Mendapatkan informasi akun pengguna
             const responseAccount = await axios.get(
               `https://api.themoviedb.org/3/account?api_key=${API_KEY}&session_id=${sessionId}`
             );
 
             const accountId = responseAccount.data.id;
 
-            // 3. Menyimpan session_id dan account_id di local storage
             localStorage.setItem("tmdb_session_id", sessionId);
             localStorage.setItem("tmdb_account_id", accountId);
 

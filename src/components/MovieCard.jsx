@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Card,
   CardMedia,
@@ -28,6 +28,8 @@ const MovieCard = ({ movie, callback }) => {
     removeFromWatchlist,
   } = useContext(UserContext);
 
+  const navigate = useNavigate();
+
   const isFavorite = favorites.some((fav) => fav.id === movie.id);
   const isInWatchlist = watchlist.some((watch) => watch.id === movie.id);
 
@@ -38,10 +40,10 @@ const MovieCard = ({ movie, callback }) => {
         await callback();
       } else {
         addToFavorites(movie);
-        await callback()
+        await callback();
       }
     } else {
-      // Navigate to login or show a message
+      navigate("/login");
     }
   };
 
@@ -52,10 +54,10 @@ const MovieCard = ({ movie, callback }) => {
         await callback();
       } else {
         await addToWatchlist(movie);
-        await callback()
+        await callback();
       }
     } else {
-      // Navigate to login or show a message
+      navigate("/login");
     }
   };
 

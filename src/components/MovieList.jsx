@@ -17,8 +17,14 @@ const MovieList = ({
   addToFavorites,
 }) => (
   <Container>
-    <Box sx={{ marginTop: "2rem" }}>
-      <Typography variant="subtitle" gutterBottom>
+    <Box sx={{ textAlign: { xs: "center", md: "left" } }}>
+      <Typography
+        sx={{
+          color: "secondary.main",
+          fontSize: { xs: "1.5rem", md: "2rem" },
+          fontWeight: { xs: "normal", md: 600 },
+        }}
+      >
         Now Playing
       </Typography>
     </Box>
@@ -52,8 +58,15 @@ const MovieList = ({
         ))}
       </Box>
     )}
-    <Box sx={{ marginTop: "2rem", marginBottom: "1rem" }}>
-      <Typography variant="subtitle" gutterBottom>
+    <Box sx={{ marginTop: "2rem", textAlign: { xs: "center", md: "left" } }}>
+      <Typography
+        sx={{
+          color: "secondary.main",
+          fontSize: { xs: "1.5rem", md: "2rem" },
+          fontWeight: { xs: "normal", md: 600 },
+          marginBottom: "1rem",
+        }}
+      >
         Top Rated
       </Typography>
     </Box>

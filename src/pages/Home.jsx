@@ -2,9 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import MovieList from "../components/MovieList";
 import { UserContext } from "../contexts/UserContext";
+import SearchBar from "../components/SearchBar";
 
 const Home = () => {
-  const API_KEY = "ca3fedf8135600641335f54c5eb6e536";
+  const API_KEY = import.meta.env.VITE_API_KEY;
   const [nowPlaying, setNowPlaying] = useState([]);
   const [topRated, setTopRated] = useState([]);
   const [loadingNowPlaying, setLoadingNowPlaying] = useState(true);
@@ -73,6 +74,7 @@ const Home = () => {
 
   return (
     <>
+      <SearchBar />
       <MovieList
         nowPlaying={nowPlaying}
         loadingNowPlaying={loadingNowPlaying}

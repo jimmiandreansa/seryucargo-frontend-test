@@ -4,7 +4,7 @@ import axios from "axios";
 
 export const UserContext = createContext();
 
-const API_KEY = "ca3fedf8135600641335f54c5eb6e536";
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 const initialState = {
   user: null,

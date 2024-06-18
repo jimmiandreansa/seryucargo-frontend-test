@@ -1,13 +1,13 @@
-// src/pages/Callback.jsx
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Box } from "@mui/material";
 
 const Callback = () => {
   const navigate = useNavigate();
+  const API_KEY = import.meta.env.VITE_API_KEY;
 
   useEffect(() => {
-    const API_KEY = "ca3fedf8135600641335f54c5eb6e536";
     const handleCallback = async () => {
       const urlParams = new URLSearchParams(window.location.search);
       const requestToken = urlParams.get("request_token");
@@ -43,7 +43,6 @@ const Callback = () => {
           }
         } catch (error) {
           console.error("Error creating session:", error);
-          // navigate("/login");
         }
       }
     };
@@ -51,7 +50,7 @@ const Callback = () => {
     handleCallback();
   }, [navigate]);
 
-  return <div>Processing...</div>;
+  return <Box>Processing...</Box>;
 };
 
 export default Callback;

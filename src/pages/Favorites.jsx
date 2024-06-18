@@ -12,7 +12,7 @@ import MovieCard from "../components/MovieCard";
 import { useFavorite, useFavoriteDispatch } from "../contexts/FavoriteContext";
 
 const Favorites = () => {
-  const API_KEY = "ca3fedf8135600641335f54c5eb6e536"; 
+  const API_KEY = import.meta.env.VITE_API_KEY;
 
   const navigate = useNavigate();
   const { favorite, loading } = useFavorite();
@@ -40,13 +40,33 @@ const Favorites = () => {
     }
 
     fetchFavorites();
+
+    const interval = setInterval(() => {
+      fetchFavorites();
+    }, 120000);
+
+    return () => clearInterval(interval);
   }, [sessionId, navigate]);
 
   return (
-    <Container>
+    <Container sx={{ paddingBottom: "2rem" }}>
       {favorite.length !== 0 && (
-        <Box sx={{ marginTop: "2rem", marginBottom: "1rem" }}>
-          <Typography variant="subtitle" gutterBottom>
+        <Box
+          sx={{
+            marginTop: "2rem",
+            marginBottom: "1rem",
+            textAlign: { xs: "center", md: "left" },
+          }}
+        >
+          <Typography
+            variant="subtitle"
+            gutterBottom
+            sx={{
+              color: "secondary.main",
+              fontSize: { xs: "1.5rem", md: "2rem" },
+              fontWeight: { xs: "normal", md: 600 },
+            }}
+          >
             Your Favorite Movies
           </Typography>
         </Box>

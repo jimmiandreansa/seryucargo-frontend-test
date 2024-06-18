@@ -9,10 +9,13 @@ import {
   CircularProgress,
 } from "@mui/material";
 import MovieCard from "../components/MovieCard";
-import { useWatchlist, useWatchlistDispatch } from "../contexts/WatchlistContext";
+import {
+  useWatchlist,
+  useWatchlistDispatch,
+} from "../contexts/WatchlistContext";
 
 const Watchlist = () => {
-  const API_KEY = "ca3fedf8135600641335f54c5eb6e536";
+  const API_KEY = import.meta.env.VITE_API_KEY;
 
   const navigate = useNavigate();
   const { watchlist, loading } = useWatchlist();
@@ -40,13 +43,33 @@ const Watchlist = () => {
     }
 
     fetchWatchlist();
+
+    const interval = setInterval(() => {
+      fetchWatchlist();
+    }, 120000);
+
+    return () => clearInterval(interval);
   }, [sessionId, navigate]);
 
   return (
-    <Container>
+    <Container sx={{ paddingBottom: "2rem" }}>
       {watchlist.length !== 0 && (
-        <Box sx={{ marginTop: "2rem", marginBottom: "1rem" }}>
-          <Typography variant="subtitle" gutterBottom>
+        <Box
+          sx={{
+            marginTop: "2rem",
+            marginBottom: "1rem",
+            textAlign: { xs: "center", md: "left" },
+          }}
+        >
+          <Typography
+            variant="subtitle"
+            gutterBottom
+            sx={{
+              color: "secondary.main",
+              fontSize: { xs: "1.5rem", md: "2rem" },
+              fontWeight: { xs: "normal", md: 600 },
+            }}
+          >
             Your Watchlist
           </Typography>
         </Box>
@@ -67,10 +90,7 @@ const Watchlist = () => {
         <Grid container spacing={2}>
           {watchlist.map((movie) => (
             <Grid item key={movie.id} xs={6} sm={4} md={3} lg={2}>
-              <MovieCard
-                movie={movie}
-                callback={fetchWatchlist}
-              />
+              <MovieCard movie={movie} callback={fetchWatchlist} />
             </Grid>
           ))}
         </Grid>

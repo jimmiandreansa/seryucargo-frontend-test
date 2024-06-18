@@ -22,12 +22,11 @@ body {
   text-align: center;
 }
 
-/* src/index.css or App.css */
 .movie-list {
   display: flex;
   overflow-x: scroll;
   padding: 16px 0;
-  scrollbar-width: thin; /* Firefox */
+  scrollbar-width: thin;
 }
 
 .movie-list::-webkit-scrollbar {

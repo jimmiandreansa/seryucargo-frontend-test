@@ -1,9 +1,9 @@
-// src/pages/Login.jsx
+import { Box } from "@mui/material";
 import { useEffect } from "react";
 
 const Login = () => {
   useEffect(() => {
-    const API_KEY = "ca3fedf8135600641335f54c5eb6e536";
+    const API_KEY = import.meta.env.VITE_API_KEY;
     const getRequestToken = async () => {
       try {
         const response = await fetch(
@@ -26,7 +26,7 @@ const Login = () => {
     getRequestToken();
   }, []);
 
-  return <div>Redirecting to login...</div>;
+  return <Box>Redirecting to login...</Box>;
 };
 
 export default Login;

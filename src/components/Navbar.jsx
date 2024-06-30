@@ -63,6 +63,7 @@ const Navbar = () => {
               justifyContent: "space-between",
               alignItems: "center",
             }}
+            sx={{ paddingX: { xs: 0, sm: 3 } }}
           >
             <Typography
               variant="title"
@@ -128,7 +129,7 @@ const Navbar = () => {
                 aria-label="open drawer"
                 edge="start"
                 onClick={toggleDrawer(true)}
-                sx={{ color: "white", marginLeft: "auto" }}
+                sx={{ color: "white", marginLeft: "auto", paddingRight: 0 }}
               >
                 <MenuIcon />
               </IconButton>

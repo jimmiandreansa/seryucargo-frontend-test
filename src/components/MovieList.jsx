@@ -16,7 +16,7 @@ const MovieList = ({
   addToWatchlist,
   addToFavorites,
 }) => (
-  <Container>
+  <Container sx={{padding: 0}}>
     <Box sx={{ textAlign: { xs: "center", md: "left" } }}>
       <Typography
         sx={{

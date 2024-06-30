@@ -49,7 +49,7 @@ const Favorites = () => {
   }, [sessionId, navigate]);
 
   return (
-    <Container sx={{ paddingBottom: "2rem" }}>
+    <Container sx={{ paddingBottom: "2rem", paddingX: 0 }}>
       {favorite.length !== 0 && (
         <Box
           sx={{
@@ -84,7 +84,7 @@ const Favorites = () => {
           </Typography>
         </Box>
       ) : (
-        <Grid container spacing={2}>
+        <Grid container sx={{padding: 0}}>
           {favorite.map((movie) => (
             <Grid
               key={movie.id}

@@ -64,7 +64,7 @@ const MovieCard = ({ movie, callback }) => {
   return (
     <Card
       sx={{
-        minWidth: 180,
+        minWidth: {xs: 150, md: 180},
         margin: "0 8px",
         borderRadius: 2,
         background: "#050E12",
@@ -80,12 +80,12 @@ const MovieCard = ({ movie, callback }) => {
       >
         <CardMedia
           component="img"
-          height="300"
+          sx={{height: {xs: 250, md: 280, lg: 300}}}
           image={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
           alt={movie.title}
         />
         <CardContent>
-          <Typography variant="h6" component="div" noWrap color={"#ABABAB"}>
+          <Typography variant="h6" component="div" noWrap color={"#ABABAB"} sx={{fontSize: {xs: 14, md: 20}}}>
             {movie.title}
           </Typography>
           <Typography variant="body2" color={"#ABABAB"}>

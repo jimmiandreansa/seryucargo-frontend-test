@@ -52,7 +52,7 @@ const Watchlist = () => {
   }, [sessionId, navigate]);
 
   return (
-    <Container sx={{ paddingBottom: "2rem" }}>
+    <Container sx={{ paddingBottom: "2rem", paddingX: 0 }}>
       {watchlist.length !== 0 && (
         <Box
           sx={{
@@ -87,9 +87,17 @@ const Watchlist = () => {
           </Typography>
         </Box>
       ) : (
-        <Grid container spacing={2}>
+        <Grid container sx={{ padding: 0 }}>
           {watchlist.map((movie) => (
-            <Grid item key={movie.id} xs={6} sm={4} md={3} lg={2}>
+            <Grid
+              item
+              key={movie.id}
+              xs={6}
+              sm={4}
+              md={3}
+              lg={2}
+              sx={{ marginY: "0.5rem" }}
+            >
               <MovieCard movie={movie} callback={fetchWatchlist} />
             </Grid>
           ))}
